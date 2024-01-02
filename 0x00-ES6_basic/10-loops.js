@@ -6,10 +6,11 @@
 */
 
 const appendToEachArrayValue = (array, appendString) => {
-  const copyArr = [...array];
-  for (const [idx, item] of copyArr.entries()) copyArr[idx] = appendString + item;
+  const resoult = [];
 
-  return copyArr;
+  for (const value of array) resoult.push(appendString + value);
+
+  return resoult;
 };
 
 export default appendToEachArrayValue;
