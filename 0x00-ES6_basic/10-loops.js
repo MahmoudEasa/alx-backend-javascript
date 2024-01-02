@@ -7,9 +7,8 @@
 
 const appendToEachArrayValue = (array, appendString) => {
   const copyArr = [...array];
-  for (const idx in copyArr) {
-    if (copyArr[idx]) copyArr[idx] = appendString + array[idx];
-  }
+  for (const [idx, item] of copyArr.entries()) copyArr[idx] = appendString + item;
+
   return copyArr;
 };
 
