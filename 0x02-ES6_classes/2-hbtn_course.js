@@ -1,11 +1,11 @@
 export default class HolbertonCourse {
   // name: String
   // length: Number
-  // students: Array
+  // students: Array of Strings
   constructor(name, length, students) {
-    this._name = name;
-    this._length = length;
-    this._students = students;
+    this.name = name;
+    this.length = length;
+    this.students = students;
   }
 
   get name() {
