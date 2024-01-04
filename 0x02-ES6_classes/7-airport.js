@@ -1,4 +1,4 @@
-export default class Airport {
+class Airport {
   // name: String
   // code: String
   constructor(name, code) {
@@ -7,6 +7,8 @@ export default class Airport {
   }
 
   toString() {
-    return (this._code);
+    return (`[object ${this._code}]`);
   }
 }
+
+export default Airport;
