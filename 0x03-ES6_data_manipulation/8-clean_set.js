@@ -8,7 +8,7 @@
  */
 
 const cleanSet = (set, startString) => {
-  if (!(set instanceof Set) || (typeof startString !== 'string')) return;
+  if (!(set instanceof Set) || (typeof startString !== 'string')) return ('');
 
   const startStringLen = startString.length;
 
