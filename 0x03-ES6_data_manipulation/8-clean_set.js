@@ -15,7 +15,7 @@ const cleanSet = (set, startString) => {
   if (!startStringLen) return ('');
 
   return (Array.from(set).map((el) => {
-    if (el.length < startStringLen) return (null);
+    if (!el || el.length < startStringLen) return (null);
 
     const start = el.slice(0, startStringLen);
     if (start === startString) {
