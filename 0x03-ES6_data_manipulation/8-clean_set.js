@@ -10,7 +10,8 @@
 const cleanSet = (set, startString) => {
   const startStringLen = startString.length;
 
-  if (!startStringLen || !(set instanceof Set)) return ('');
+  if (!startStringLen || !(set instanceof Set)
+    || (typeof startString !== 'string')) return ('');
 
   return (Array.from(set).map((el) => {
     const start = el.slice(0, startStringLen);
