@@ -6,40 +6,43 @@ const countStudents = (path) => {
   }
 
   try {
-    const file_content = fs.readFileSync(path, 'utf-8');
+    const fileContent = fs.readFileSync(path, 'utf-8');
     let data = null;
-    if (file_content.length) data = file_content.split('\n').splice(1);
-    let data_len = 0
-    const field_obj = {};
+    if (fileContent.length) data = fileContent.split('\n').splice(1);
+    let dataLen = 0;
+    const fieldObj = {};
     if (data) {
       data.forEach((e) => {
         const line = e.split(',');
-        const line_len = line.length;
-        if (line_len > 0) {
-          data_len++;
-          const filed = line[line_len - 1];
-          const first_name = line[0];
-          if (filed in field_obj) {
-            field_obj[filed].data.push(first_name);
-            field_obj[filed].count++;
+        const lineLen = line.length;
+        if (lineLen > 0) {
+          dataLen += 1;
+          const filed = line[lineLen - 1];
+          const firstName = line[0];
+          if (filed in fieldObj) {
+            fieldObj[filed].data.push(firstName);
+            fieldObj[filed].count += 1;
+          } else {
+            fieldObj[filed] = {
+              data: [firstName],
+              count: 1,
+            };
           }
-          else field_obj[filed] = {
-            data: [first_name],
-            count: 1
-          };
         }
-      })
-  
-      console.log(`Number of students: ${data_len}`);
-      for (field in field_obj) {
-        const data = field_obj[field].data.join(', ');
-        const f_len = field_obj[field].count;
-        console.log(`Number of students in ${field}: ${f_len}. List: ${data}`);
+      });
+    }
+
+    console.log(`Number of students: ${dataLen}`);
+    for (const field in fieldObj) {
+      if (field in fieldObj) {
+        const data = fieldObj[field].data.join(', ');
+        const fLen = fieldObj[field].count;
+        console.log(`Number of students in ${field}: ${fLen}. List: ${data}`);
       }
     }
   } catch (err) {
     console.log(err);
   }
-}
+};
 
 module.exports = countStudents;
