@@ -7,9 +7,9 @@ const countStudents = (path) => {
     const fieldObj = {};
     if (data) {
       data.forEach((e) => {
-        const line = e.split(',');
-        const lineLen = line.length;
-        if (lineLen > 0) {
+        if (e.length) {
+          const line = e.split(',');
+          const lineLen = line.length;
           dataLen += 1;
           const filed = line[lineLen - 1];
           const firstName = line[0];
@@ -28,9 +28,11 @@ const countStudents = (path) => {
 
     console.log(`Number of students: ${dataLen}`);
     for (const field in fieldObj) {
-      const data = fieldObj[field].data.join(', ');
-      const fLen = fieldObj[field].count;
-      console.log(`Number of students in ${field}: ${fLen}. List: ${data}`);
+      if (field in fieldObj) {
+        const data = fieldObj[field].data.join(', ');
+        const fLen = fieldObj[field].count;
+        console.log(`Number of students in ${field}: ${fLen}. List: ${data}`);
+      }
     }
   } catch (err) {
     throw new Error('Cannot load the database');
