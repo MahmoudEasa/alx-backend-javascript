@@ -1,6 +1,8 @@
 const http = require('http');
 const fs = require('fs').promises;
-const db = process.argv[2];
+let db = null;
+if (process.argv.length === 3)
+  db = process.argv[2];
 
 const countStudents = (path) => new Promise((resolve, rejects) => {
   fs.readFile(path, 'utf-8').then((d) => {
