@@ -1,7 +1,6 @@
 const calculateNumber = require('./0-calcul');
 const assert = require('assert');
 
-/* eslint-disable */
 describe('calculateNumber', () => {
 	it('Should round a and b and return the sum of it', () => {
 		assert.strictEqual(calculateNumber(1, 3), 4);
@@ -35,4 +34,3 @@ describe('calculateNumber', () => {
 		assert.strictEqual(calculateNumber('4', 4), 8);
 	});
 });
-/* eslint-disable */
