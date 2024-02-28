@@ -4,7 +4,9 @@
 	"description": "",
 	"main": "0-calcul.js",
 	"scripts": {
-		"test": "./node_modules/mocha/bin/mocha --require babel-register --exit"
+		"lint": "./node_modules/.bin/eslint",
+		"check-lint": "lint [0-9]*.js",
+		"test": "node ./node_modules/mocha/bin/mocha --require babel-register --exit"
 	},
 	"author": "",
 	"license": "ISC",
