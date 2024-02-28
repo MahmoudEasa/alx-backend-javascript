@@ -1,10 +1,10 @@
 {
 	"name": "task_0",
 	"version": "1.0.0",
-	"description": "/root",
-	"main": "",
+	"description": "",
+	"main": "0-calcul.js",
 	"scripts": {
-		"test": "./node_modules/mocha/bin/mocha.js"
+		"test": "./node_modules/mocha/bin/mocha --require babel-register --exit"
 	},
 	"author": "",
 	"license": "ISC",
