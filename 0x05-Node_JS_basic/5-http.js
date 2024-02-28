@@ -1,8 +1,6 @@
 const http = require('http');
 const fs = require('fs').promises;
 
-const db = process.argv[2];
-
 const countStudents = (path) => new Promise((resolve, rejects) => {
   fs.readFile(path, 'utf-8').then((d) => {
     const data = d.split('\n').splice(1);
@@ -50,11 +48,9 @@ const app = http.createServer((req, res) => {
   if (req.url === '/') {
     res.end('Hello Holberton School!');
   } else if (req.url === '/students') {
-    let result = 'This is the list of our students';
-    countStudents(db).then((data) => {
-      result += '\n';
-      result += data;
-      res.end(result);
+    const result = 'This is the list of our students';
+    countStudents(process.argv[2]).then((data) => {
+      res.end(`${result}\n${data}`);
     }).catch((err) => res.end(`${result} ${err.message}`));
   }
 });
