@@ -7,5 +7,8 @@ describe("calculateNumber", () => {
 		assert.equal(calculateNumber(1, 3.7), 5);
 		assert.equal(calculateNumber(1.2, 3.7), 5);
 		assert.equal(calculateNumber(1.5, 3.7), 6);
+		assert.equal(calculateNumber(0, 0), 0);
+		assert.equal(calculateNumber(0), NaN);
+		assert.equal(calculateNumber(), NaN);
 	});
 });
