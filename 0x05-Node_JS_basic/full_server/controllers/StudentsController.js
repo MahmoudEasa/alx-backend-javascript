@@ -5,13 +5,12 @@ class StudentsController {
     readDatabase(process.argv[2])
       .then((data) => {
         let result = 'This is the list of our students';
-        for (const field in data) {
-          if (field in data) {
-            const sortedData = data[field].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
-            const nameLen = sortedData.length;
-            const names = sortedData.join(', ');
-            result += `\nNumber of students in ${field}: ${nameLen}. List: ${names}`;
-          }
+        const sortedData = Object.keys(data).sort();
+        console.log(sortedData);
+        for (const field of sortedData) {
+          const nameLen = data[field].length;
+          const names = data[field].join(', ');
+          result += `\nNumber of students in ${field}: ${nameLen}. List: ${names}`;
         }
         response.status(200).send(result);
       })
@@ -22,7 +21,7 @@ class StudentsController {
 
   static getAllStudentsByMajor(request, response) {
     const { major } = request.params;
-    if ((major !== 'CS') || (major !== 'SWE')) response.status(500).send('Major parameter must be CS or SWE');
+    if ((major !== 'CS') && (major !== 'SWE')) response.status(500).send('Major parameter must be CS or SWE');
 
     readDatabase(process.argv[2])
       .then((data) => {
