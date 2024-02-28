@@ -1,8 +1,6 @@
 const http = require('http');
 const fs = require('fs').promises;
-let db = null;
-if (process.argv.length === 3)
-  db = process.argv[2];
+const db = process.argv[2];
 
 const countStudents = (path) => new Promise((resolve, rejects) => {
   fs.readFile(path, 'utf-8').then((d) => {
@@ -57,14 +55,10 @@ const app = http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     let result = `This is the list of our students`;
     countStudents(db).then((data) => {
-      result += '\n' + data;
+      result += ('\n' + data);
       result = result.slice(0, -1)
       res.end(result);
     }).catch(() => res.end(result));
-  } else {
-    // Default route for unknown paths
-    res.writeHead(404, { 'Content-Type': 'text/plain' });
-    res.end('404 Not Found');
   }
 });
 
