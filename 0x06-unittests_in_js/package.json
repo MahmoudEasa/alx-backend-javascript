@@ -1,10 +1,10 @@
 {
-	"name": "0x06-unittests_in_js",
+	"name": "task_0",
 	"version": "1.0.0",
-	"description": "",
+	"description": "/root",
 	"main": "",
 	"scripts": {
-		"test": "./node_modules/mocha/bin/mocha"
+		"test": "./node_modules/mocha/bin/mocha.js"
 	},
 	"author": "",
 	"license": "ISC",
