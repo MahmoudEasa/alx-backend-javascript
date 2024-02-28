@@ -1,5 +1,6 @@
 const http = require('http');
 const fs = require('fs').promises;
+
 const db = process.argv[2];
 
 const countStudents = (path) => new Promise((resolve, rejects) => {
@@ -28,13 +29,13 @@ const countStudents = (path) => new Promise((resolve, rejects) => {
       });
     }
 
-    let result = `Number of students: ${dataLen}\n`
+    let result = `Number of students: ${dataLen}`;
 
     for (const field in fieldObj) {
       if (field in fieldObj) {
         const data = fieldObj[field].data.join(', ');
         const fLen = fieldObj[field].count;
-        result += `Number of students in ${field}: ${fLen}. List: ${data}\n`;
+        result += `\nNumber of students in ${field}: ${fLen}. List: ${data}`;
       }
     }
     resolve(result);
@@ -44,19 +45,15 @@ const countStudents = (path) => new Promise((resolve, rejects) => {
 });
 
 const app = http.createServer((req, res) => {
-  const url = new URL(req.url, `http://${req.headers.host}`);
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
 
-  if (url.pathname === '/') {
-    // Home page route
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
+  if (req.url === '/') {
     res.end('Hello Holberton School!');
-  } else if (url.pathname === '/students') {
-    // Students page route
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    let result = `This is the list of our students`;
+  } else if (req.url === '/students') {
+    let result = 'This is the list of our students';
     countStudents(db).then((data) => {
-      result += ('\n' + data);
-      result = result.slice(0, -1)
+      result += '\n';
+      result += data;
       res.end(result);
     }).catch(() => res.end(result));
   }
