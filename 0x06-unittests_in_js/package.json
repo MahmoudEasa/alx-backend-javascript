@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "0-calcul.js",
 	"scripts": {
-		"test": "./node_modules/mocha/bin/mocha.js"
+		"test": "./node_modules/mocha/bin/mocha"
 	},
 	"author": "",
 	"license": "ISC",
