@@ -10,15 +10,18 @@ describe("Index page", () => {
 		})
 	});
 
-	it("Cart Page...", (done) => {
+	it("Cart Page Testing...", (done) => {
 		request("http://localhost:7865/cart/12", (err, res) => {
 			expect(res.statusCode).to.equal(200);
 			expect(res.body).to.equal("Payment methods for cart 12");
+            done();
 		})
+	});
 
+	it("Cart Page Testing...", (done) => {
 		request("http://localhost:7865/cart/hello", (err, res) => {
 			expect(res.statusCode).to.equal(404);
+            done();
 		})
-        done();
 	});
 });
