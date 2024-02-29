@@ -11,7 +11,7 @@ describe("sendPaymentRequestToApi", () => {
         calculateNumber = sinon.spy(Utils, 'calculateNumber');
         consoleLogSpy = sinon.spy(console, 'log');
     });
-    
+
     afterEach(() => {
         // Restore the original method to avoid interference with other tests
         calculateNumber.restore();
