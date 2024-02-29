@@ -17,4 +17,3 @@ describe("sendPaymentRequestToApi", () => {
     consoleLogSpy.restore();
     });
 });
-
