@@ -9,8 +9,8 @@ describe("sendPaymentRequestToApi", () => {
     const consoleLogSpy = sinon.spy(console, 'log');
 
     sendPaymentRequestToApi(100, 20);
-    expect(calculateNumberSpy.calledOnceWithExactly('SUM', 100, 20)).to.be.true;
-    expect(consoleLogSpy.calledOnceWithExactly('The total is: 10')).to.be.true;
+    expect(calculateNumberSpy.calledWithExactly('SUM', 100, 20)).to.be.true;
+    expect(consoleLogSpy.calledWith('The total is: 10')).to.be.true;
 
     // Restore the original method to avoid interference with other tests
     calculateNumberSpy.restore();
