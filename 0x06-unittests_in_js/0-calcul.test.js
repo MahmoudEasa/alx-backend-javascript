@@ -1,7 +1,5 @@
-// const calculateNumber = require('./0-calcul');
-import calculateNumber from './0-calcul.js'
-import assert from 'assert';
-// const assert = require('assert');
+const calculateNumber = require('./0-calcul');
+const assert = require('assert');
 
 describe('calculateNumber', () => {
 	it('Should round a and b and return the sum of it', () => {

@@ -1,1 +1,1 @@
-export default (a, b) => Math.round(a) + Math.round(b);
+module.exports = (a, b) => Math.round(a) + Math.round(b);

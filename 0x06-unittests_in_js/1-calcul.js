@@ -1,4 +1,4 @@
-export default (type, a, b) => {
+module.exports = (type, a, b) => {
     if (type === "SUM") return Math.round(a) + Math.round(b);
     if (type === "SUBTRACT") return Math.round(a) - Math.round(b);
     if (type === "DIVIDE") {
