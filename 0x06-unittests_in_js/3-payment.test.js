@@ -1,7 +1,10 @@
-const sinon = require("sinon");
-const { expect } = require("chai");
-const sendPaymentRequestToApi = require("./3-payment");
-const Utils = require('./utils');
+// const sinon = require("sinon");
+import sinon from 'sinon';
+import { expect } from 'chai';
+import sendPaymentRequestToApi from './3-payment.js';
+// const sendPaymentRequestToApi = require("./3-payment");
+import Utils from './utils.js';
+// const Utils = require('./utils');
 
 describe("sendPaymentRequestToApi", () => {
     it("sendPaymentRequestToApi", () => {
